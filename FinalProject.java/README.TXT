@@ -4,9 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
+PROJECT TITLE: The Adventures of Stob
+PURPOSE OF PROJECT: APCS Final Project
 VERSION or DATE:
 HOW TO START THIS PROJECT:
 AUTHORS:
-USER INSTRUCTIONS:
+USER INSTRUCTIONS: Use Arrow Keys and 'Q' and 'W' to control the stick figure. 
