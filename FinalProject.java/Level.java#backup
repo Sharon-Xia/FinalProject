@@ -1,0 +1,175 @@
+
+/**
+ * Abstract class Level - write a description of the class here
+ * 
+ * @author (your name here)
+ * @version (version number or date here)
+ */
+import java.awt.*;          // access to Container
+import java.awt.event.*;    // access to WindowAdapter, WindowEvent
+import javax.swing.*;       // access to JFrame and Jcomponents
+import javax.swing.event.*;     // access to JSlider events
+import apcslib.*;
+import chn.util.*;
+import java.util.*;
+public abstract class Level
+{
+    public Adventure myAdv;  
+    public ArrayList<Platform> platforms;
+    public ArrayList<Trigger> triggers;
+    public ArrayList<Water> puddles;
+    public Loc startOfLvl;
+    public Loc endOfLvl;
+    public Player person;
+    public Level(Adventure adventure, Loc startLoc, Loc endLoc)
+    {
+        myAdv = adventure;
+        platforms = new ArrayList<Platform>();
+        triggers = new ArrayList<Trigger>();
+        puddles = new ArrayList<Water>();
+        startOfLvl = startLoc;
+        endOfLvl = endLoc;
+        person = new Player(startOfLvl);
+    }
+
+    public void applyLayout()
+    {
+        //for each level, instantiates all objects according to unique layout
+        putAllOnGrid();
+    }
+
+    public void reset()
+    {
+        myAdv.getGUI().clear();
+        putAllOnGrid();
+        person = new Player(startOfLvl);
+    }
+
+    public boolean run()//returns true if player gets through level, false if player fails level, null otherwise
+    {
+        if (person.getLocation().isBordering(endOfLvl))
+        {
+            return true;
+        }
+        else if(willPlayerDie())
+        {
+            reset();
+            return false;
+        }
+        else
+            return null;
+    }
+
+    public void start()
+    {
+        applyLayout();
+    }
+
+    public void end()
+    {
+        myAdv.getGUI().clear();
+    }
+
+    public void putAllOnGrid()
+    {
+        getAdv().getGUI().insertOnGrid(platforms);
+        getAdv().getGUI().insertOnGrid(triggers);
+        getAdv().getGUI().insertOnGrid(puddles);
+        getAdv().getGUI().insertOnGrid(person);
+    }
+    
+    public void movePlayer(int direction)
+    {
+        
+    }
+    
+    public void movePlatforms()//moves all platforms in one call
+    {
+        
+    }
+
+    public Adventure getAdventure()
+    {
+        return myAdv;
+    }
+
+    public void addPlatform(Platform plat)
+    {
+        platforms.add(plat);
+    }
+
+    public ArrayList<Platform> getPlats()
+    {
+        return platforms;
+    }
+
+    public void addTrigger(Trigger trig)
+    {
+        triggers.add(trig);
+    }
+
+    public ArrayList<Trigger> getTrigs()
+    {
+        return triggers;
+    }
+
+    public void addWater(Water wat)
+    {
+        puddles.add(wat);
+    }
+
+    public ArrayList<Water> getPuddles()
+    {
+        return puddles;
+    }
+
+    public void triggerPlatforms()
+    {
+        for(Trigger t: triggers)
+        {
+            if (person.getLocation().isBordering(t.getLocation()) && !t.getStatus())
+            {
+                t.setOffTrigger();
+                myAdv.getGUI().toggleVisibility(t);
+                myAdv.getGUI().toggleVisibility(t.getPlatform());
+            }
+        }
+    }
+
+    private boolean willPlayerDie()
+    {
+        for (Water puddle : puddles)
+        {
+            if (person.getLocation().isBordering(puddle.getLocation()))
+            {
+                return true;
+            }
+        }
+
+        if(person.getLocation().getYd() == myAdv.getGUI().getHeight())
+            return true;
+        return false;
+    }
+
+    public boolean isLocFree(Loc newLoc)
+    {
+        if(!isWithinGrid(newLoc))
+        {
+            return false;
+        }
+        for(Platform plat: platforms)
+        {
+            if(newLoc.isWithin(plat.getLocation()))
+                return false;
+        }
+        return true;
+    }
+
+    public boolean isWithinGrid(Loc l)
+    {
+        if(l.getXl < 0 || l.getYu < 0 || l.getXr > myAdv.getGUI().getWidth() || l.getYd > myAdv.getGUI().getHeight())
+            return false;
+        return true;
+    }
+    
+}

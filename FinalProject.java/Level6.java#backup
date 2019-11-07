@@ -1,0 +1,22 @@
+
+/**
+ * Write a description of class Level6 here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+import java.awt.*;          // access to Container
+import java.awt.event.*;    // access to WindowAdapter, WindowEvent
+import javax.swing.*;       // access to JFrame and Jcomponents
+import javax.swing.event.*;		// access to JSlider events
+import apcslib.*;
+import chn.util.*;
+import java.util.*;
+public class Level6 extends Level
+{
+    public Level6(Loc startLoc, Loc endLoc)
+    {
+        super(startLoc, endLoc);
+    }
+}
+

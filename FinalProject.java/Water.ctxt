@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=location
+comment0.target=Water(Loc)
+comment1.params=location\ visibility
+comment1.target=Water(Loc,\ boolean)
+numComments=2

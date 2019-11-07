@@ -1,0 +1,88 @@
+
+
+/**
+ * Write a description of class Loc here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+import java.awt.*;          // access to Container
+import java.awt.event.*;    // access to WindowAdapter, WindowEvent
+import javax.swing.*;       // access to JFrame and Jcomponents
+import javax.swing.event.*;     // access to JSlider events
+import apcslib.*;
+import chn.util.*;
+import java.util.*;
+public class Loc
+{
+    private int myXl;
+    private int myYu;
+    private int myXr;
+    private int myYd;
+    public Loc(int xl, int yu)
+    {
+        myXl = xl;
+        myYu = yu;
+    }
+    
+    public Loc(int xl, int xr, int yu, int yd)
+    {
+        myXl = xl;
+        myXr = xr;
+        myYu = yu;
+        myYd = yd;
+    }
+    
+    public boolean isWithin(Loc oloc)
+    {
+        if (myXl > oloc.Xl() && myXl < oloc.getXr() && myYu > oloc.getYu() && myYu < oloc.getYd())
+            return true;
+        else if (myXr > oloc.Xl() && myXr < oloc.getXr() && myYu > oloc.getYu() && myYu < oloc.getYd())
+            return true;
+        else if (myXl > oloc.Xl() && myXl < oloc.getXr() && myYd > oloc.getYu() && myYd < oloc.getYd())
+            return true;
+        else if (myXl > oloc.Xl() && myXl < oloc.getXr() && myYd > oloc.getYu() && myYd < oloc.getYd())
+            return true;
+        return false;
+    }
+    
+    public boolean isOn(Loc oloc)
+    {
+        if(myYd == oloc.getYu() && myXl >= oloc.getXl()/*may subtract some pixels for extra space in player gif*/ && myXr <= oloc.getXr())
+            return true;
+        return false;
+    }
+    
+    public boolean isBordering(Loc oloc)
+    {
+        if (myXl >= oloc.Xl() && myXl <= oloc.getXr() && myYu >= oloc.getYu() && myYu <= oloc.getYd())
+            return true;
+        else if (myXr >= oloc.Xl() && myXr <= oloc.getXr() && myYu >= oloc.getYu() && myYu <= oloc.getYd())
+            return true;
+        else if (myXl >= oloc.Xl() && myXl <= oloc.getXr() && myYd >= oloc.getYu() && myYd <= oloc.getYd())
+            return true;
+        else if (myXl >= oloc.Xl() && myXl <= oloc.getXr() && myYd >= oloc.getYu() && myYd <= oloc.getYd())
+            return true;
+        return false;
+    }
+
+    public int getXl()
+    {
+        return myXl;
+    }
+    
+    public int getYu()
+    {
+        return myYu;
+    }
+    
+    public int getXr()
+    {
+        return myXr;
+    }
+    
+    public int getYd()
+    {
+        return myYd;
+    }
+}

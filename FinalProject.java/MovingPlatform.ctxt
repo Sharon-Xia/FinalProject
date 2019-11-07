@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=l\ visibility\ border\ speed\ udlr\ direction
+comment0.target=MovingPlatform(Loc,\ boolean,\ Loc,\ int,\ boolean,\ boolean)
+comment1.params=
+comment1.target=Loc\ getBorder()
+comment2.params=
+comment2.target=void\ process()
+comment3.params=
+comment3.target=boolean\ getType()
+comment4.params=
+comment4.target=int\ getSpeed()
+comment5.params=
+comment5.target=boolean\ getDirection()
+comment6.params=
+comment6.target=void\ toggleDirection()
+numComments=7

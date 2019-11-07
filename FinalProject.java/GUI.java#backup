@@ -1,0 +1,70 @@
+
+/**
+ * Write a description of class GUI here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+import java.awt.*;          // access to Container
+import java.awt.event.*;    // access to WindowAdapter, WindowEvent
+import javax.swing.*;       // access to JFrame and Jcomponents
+import javax.swing.event.*;     // access to JSlider events
+import apcslib.*;
+import chn.util.*;
+import java.util.*;
+public class GUI
+{
+    private int myHeight;
+    private int myWidth;
+    //needs a JFrame instance variable 
+
+    public GUI(int height, int width)
+    {
+        /*construct JFrame with given dimensions*/
+        
+        myHeight = height;
+        myWidth = width;
+    }
+    
+    public void insertOnGrid(ArrayList<Object> objs)
+    {
+        for (Object obj : objs)
+            insertOnGrid(obj);
+    }
+    
+    public void insertOnGrid(Object obj)
+    {
+        
+    }
+    
+    public void redraw(Object obj, Loc newLoc)
+    {
+         
+    }
+    
+    public void toggleVisibility(Object obj)
+    {
+        obj.toggleVisibility();
+        //draw or erase object
+    }
+    
+    public void clear()
+    {
+        
+    }
+    
+    public void displayLevel(Level lvl)
+    {
+        
+    }
+    
+    public int getHeight()
+    {
+        return myHeight;
+    }
+    
+    public int getWidth()
+    {
+        return myWidth;
+    }
+}

@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=location\ plat
+comment0.target=Trigger(Loc,\ Platform)
+comment1.params=location\ plat
+comment1.target=Trigger(Loc,\ MovingPlatform)
+comment2.params=location\ wat
+comment2.target=Trigger(Loc,\ Water)
+comment3.params=
+comment3.target=void\ setOffTrigger()
+comment4.params=
+comment4.target=void\ reset()
+comment5.params=
+comment5.target=boolean\ getStatus()
+comment6.params=
+comment6.target=Platform\ getPlatform()
+comment7.params=
+comment7.target=MovingPlatform\ getMovingPlatform()
+comment8.params=
+comment8.target=Water\ getWater()
+comment9.params=player
+comment9.target=void\ processPlayer(Player)
+comment9.text=public\ boolean\ getEffect()\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ return\ appearOrDisappear;\r\n}
+numComments=10

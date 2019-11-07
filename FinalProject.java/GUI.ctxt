@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=GUI()
+comment1.params=evt
+comment1.target=void\ windowClosing(java.awt.event.WindowEvent)
+comment2.params=g
+comment2.target=void\ paint(java.awt.Graphics)
+comment3.params=g
+comment3.target=void\ paintOffScreen(java.awt.Graphics)
+comment4.params=
+comment4.target=void\ testNextLevel()
+comment5.params=event
+comment5.target=void\ actionPerformed(java.awt.event.ActionEvent)
+numComments=6
